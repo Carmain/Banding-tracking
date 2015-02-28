@@ -1,2 +1,2 @@
 # Banding-tracking
-Interface web pour le suivit des oiseaux bagués
+Web interface to monitor and obtain information on banded birds.
