@@ -1,12 +1,12 @@
 <?php
 
     class Database_operations {
-        private $databse;
+        private $database;
         
         // Class constructor
         function __construct() {
             try {
-                $this->databse = new PDO(
+                $this->database = new PDO(
                                 'mysql:host=localhost;dbname=gonm;charset=utf8',
                                 'root',
                                 '');
@@ -17,8 +17,13 @@
         }
         
         // debug function
-        function select() {
-            $response = $this->database->query("SELECT * FROM kentish_plover");
+        function get_plover($code, $color) {
+            $response = $this->database->query("SELECT * FROM kentish_plover WHERE metal_ring = '" . $code .
+                                               "' AND color = '" . $color . "'");
+            
+            while($data = $response->fetch()) {
+                echo $data["age"] . " " . $data["town"];
+            }
         }
     }
 ?>
