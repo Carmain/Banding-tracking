@@ -51,5 +51,6 @@
         ?>
         <script src="statics/js/jquery-2.1.3.min.js"></script>
         <script src="statics/js/bootstrap.min.js"></script>
+        <script src="statics/js/banding-tracking.js"></script>
     </body>
 </html>
