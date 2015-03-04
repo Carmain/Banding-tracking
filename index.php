@@ -4,14 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="shortcut icon" type="image/png" href="statics/pictures/fav_icon.png"/>
+        
+        <link rel="shortcut icon" type="image/png" href="statics/pictures/fav_icon.png"/>
         <title>banding tracking</title>
 
         <!-- Bootstrap -->
         <link href="statics/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -43,9 +42,7 @@
                 include "content/home.php";
             }
         ?>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="statics/js/jquery-2.1.3.min.js"></script>
         <script src="statics/js/bootstrap.min.js"></script>
     </body>
 </html>
