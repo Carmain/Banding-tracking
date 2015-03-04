@@ -20,9 +20,15 @@
         <nav class="navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="index.php?url=home">Accueil</a>
                 </div>
-                <div id="navbarCollapse" class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="index.php?url=form">Vous avez vu un gravelot ?</a></li>
                         <li><a href="index.php?url=about">Informations complémentaires</a></li>
@@ -30,6 +36,7 @@
                 </div>
             </div>
         </nav>
+        
         <?php
             include "core/database_operations.php";
             $db = new Database_operations;
