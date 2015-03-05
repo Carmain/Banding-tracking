@@ -29,6 +29,6 @@ $("form").on("submit", function (event) {
     }
     else {
         swal("Erreur dans le formulaire",
-             "Un ou plusieurs champs n'ont pas été remplis correctement", "warning")
+             "Un ou plusieurs champs n'ont pas été remplis correctement", "warning");
     }
 });
