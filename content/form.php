@@ -46,10 +46,6 @@
             </div>
         </div>
         
-        <div id="warning-miss" class="alert alert-warning" role="alert" style="display: none;">
-            <strong>Attention!</strong> Merci de remplir correctement tous les champs afin de valider le formulaire
-        </div>
-        
         <div class="form-group">        
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Submit</button>

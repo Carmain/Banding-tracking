@@ -8,8 +8,8 @@
         <link rel="shortcut icon" type="image/png" href="statics/pictures/fav_icon.png"/>
         <title>banding tracking</title>
 
-        <!-- Bootstrap -->
-        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="statics/sweet_alert/sweet-alert.css">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -49,8 +49,9 @@
                 include "content/home.php";
             }
         ?>
-        <script src="statics/js/jquery-2.1.3.min.js"></script>
-        <script src="statics/js/bootstrap.min.js"></script>
-        <script src="statics/js/banding-tracking.js"></script>
+        <script src="statics/sweet_alert/sweet-alert.min.js"></script>
+        <script src="statics/jquery/jquery-2.1.3.min.js"></script>
+        <script src="statics/bootstrap/js/bootstrap.min.js"></script>
+        <script src="statics/home_made/js/banding-tracking.js"></script>
     </body>
 </html>
