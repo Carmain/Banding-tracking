@@ -2,10 +2,12 @@
 
     class Database_operations {
         private $database;
+        private $bird_db;
         
         // Class constructor
-        function __construct() {
+        function __construct($bird) {
             try {
+                $this->bird_db = $bird;
                 $this->database = new PDO(
                                 'mysql:host=localhost;dbname=gonm;charset=utf8',
                                 'root',
@@ -16,14 +18,15 @@
             }
         }
         
-        // debug function
-        function get_plover($code, $color) {
-            $response = $this->database->query("SELECT * FROM kentish_plover WHERE metal_ring = '" . $code .
-                                               "' AND color = '" . $color . "'");
-            
-            while($data = $response->fetch()) {
-                echo $data["age"] . " " . $data["town"];
-            }
+        // Return an bird with all the informations
+        function get_birds($code, $color) {
+            $request = $this->database->prepare("SELECT * FROM " . $this->bird_db .
+                                                " WHERE number = :number AND color = :color LIMIT 1");
+            $request->execute(array(
+                                "number" => $code,
+                                "color" => $color)
+                            );
+            return $request;
         }
     }
 ?>
