@@ -10,6 +10,7 @@
 
         <link href="statics/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="statics/sweet_alert/sweet-alert.css">
+        <link rel="stylesheet" type="text/css" href="statics/home_made/css/style.css">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
