@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Remplir une information à propos d'un gravelot</h2>
+    <h2>Remplir une observation à propos d'un gravelot</h2>
     <form class="form-horizontal" role="form">
         
         <div class="form-group">
@@ -44,6 +44,10 @@
                     <option>Indéterminé</option>
                 </select>
             </div>
+        </div>
+        
+        <div id="warning-miss" class="alert alert-warning" role="alert" style="display: none;">
+            <strong>Attention!</strong> Merci de remplir correctement tous les champs afin de valider le formulaire
         </div>
         
         <div class="form-group">        
