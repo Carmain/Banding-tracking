@@ -36,12 +36,7 @@
                 </div>
             </div>
         </nav>
-        
         <?php
-            include "core/database_operations.php";
-            $db = new Database_operations;
-            // $db->get_plover("SE05980", "BLANC"); // -> Test in progress
-        
             if (isset($_GET["url"])) {
                 include "content/" . $_GET["url"]. ".php";    
             }
