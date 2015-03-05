@@ -26,9 +26,8 @@ $("form").on("submit", function (event) {
    
     if (!missing_require) {
         this.submit();
-        console.log("Yes papa!");
     }
     else {
-        console.log("Damned !")
+        $("#warning-miss").show();
     }
 });
