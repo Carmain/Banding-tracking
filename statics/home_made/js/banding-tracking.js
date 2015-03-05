@@ -28,6 +28,7 @@ $("form").on("submit", function (event) {
         this.submit();
     }
     else {
-        $("#warning-miss").show();
+        swal("Erreur dans le formulaire",
+             "Un ou plusieurs champs n'ont pas été remplis correctement", "warning")
     }
 });
