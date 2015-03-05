@@ -36,6 +36,7 @@
                 </div>
             </div>
         </nav>
+        <div class ="container">
         <?php
             if (isset($_GET["url"])) {
                 include "content/" . $_GET["url"]. ".php";    
@@ -44,6 +45,7 @@
                 include "content/home.php";
             }
         ?>
+        </div>
         <script src="statics/sweet_alert/sweet-alert.min.js"></script>
         <script src="statics/jquery/jquery-2.1.3.min.js"></script>
         <script src="statics/bootstrap/js/bootstrap.min.js"></script>
