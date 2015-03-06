@@ -9,7 +9,8 @@ input.on("blur keyup", function () {
      if ($(this).val().length <= 0) {
          $(this).css("background", "#FFCCCC");
          console.log(this);
-     } else {
+     } 
+     else {
          $(this).css("background", "");
      }
 });
@@ -28,7 +29,8 @@ $("form").on("submit", function (event) {
         if ($(input[i]).val().length <= 0) {
             $(input[i]).css("background", "#FFCCCC");
             missing_require = true;
-        } else {
+        } 
+        else {
             $(this).css("background", "");
         }
     }
@@ -95,7 +97,9 @@ function initialize() {
             {enableHighAccuracy:true, maximumAge:60000,timeout:27000});
     }
     else {
-        alert('Votre navigateur ne prends pas en compte la géolocalisation, merci de ne vous fier qu\'au champs à remplir');
+        swal("Erreur dans la géolocalisation",
+             "Votre navigateur ne prends pas en compte la géolocalisation.\n" + 
+             "Merci de bien vouloir remplir les champs de localisation manuellement.", "error");
     }
 }
 
