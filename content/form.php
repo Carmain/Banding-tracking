@@ -27,6 +27,14 @@
             <input type="text" class="form-control mandatory" name="department" placeholder="Département">
         </div>
     </div>
+
+    <!-- map -->
+    <div class="form-group">
+        <label class="control-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <div id="googleMap" style="width:100%;height:380px;"></div>
+        </div>
+    </div>
     
     <div class="form-group">
         <label class="control-label col-sm-2">A propos de l'oiseau :</label>

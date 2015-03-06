@@ -50,6 +50,7 @@
         <script src="statics/sweet_alert/sweet-alert.min.js"></script>
         <script src="statics/jquery/jquery-2.1.3.min.js"></script>
         <script src="statics/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script src="statics/home_made/js/banding-tracking.js"></script>
     </body>
 </html>
