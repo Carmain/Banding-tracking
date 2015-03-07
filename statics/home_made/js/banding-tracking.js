@@ -44,14 +44,60 @@ $("form").on("submit", function (event) {
     }
 });
 
-function getMarker(positionSet, map) {
+function litteralAddress(positionSet) {
+
+    // Save the positions in two hidden fields in the form
+    $('input[name=mapX]').val(positionSet.lat());
+    $('input[name=mapY]').val(positionSet.lng());
+    
+    // Transform the latitude and the longitude into address
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'latLng': positionSet}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if(results[0]) {
+                
+                var results = results[0].address_components;
+                
+                for(var i = 0; i < results.length; i ++) {
+                    results[i];
+
+                    if(results[i].types.indexOf("locality") >= 0) {
+                        $('input[name=town]').val(results[i].long_name);
+                    }
+
+                    if (results[i].types.indexOf("route") >= 0) {
+                        $('input[name=location]').val(results[i].long_name);
+                    }
+
+                    if(results[i].types.indexOf("administrative_area_level_2") >= 0) {
+                        // Display a the long name and save in a hidden field the short
+                        $('input[name=department_long]').val(results[i].long_name);
+                        $('input[name=department_short]').val(results[i].short_name);
+                    }
+                }
+            }
+        } 
+    });
+}
+
+function setMarker(positionSet, map, markers) {
     var myMarker = new google.maps.Marker({
         position: positionSet,
         map: map,
     });
+
+    // Remove the previous markers
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    litteralAddress(positionSet);
+    markers.push(myMarker);
 }
 
 function getPosition(latitude, longitude) {
+    var map;
+    var markers = [];
+
     var positionSet = new google.maps.LatLng(latitude, longitude);
     var mapOptions = {
         center   : positionSet, // Where the center of the card is
@@ -66,8 +112,12 @@ function getPosition(latitude, longitude) {
          */
     };
 
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-    getMarker(positionSet, map);
+    map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+    setMarker(positionSet, map, markers);
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        setMarker(event.latLng, map, markers);
+    });
 }
 
 function showLocation(position) {
