@@ -44,6 +44,10 @@ $("form").on("submit", function (event) {
     }
 });
 
+/**
+ * Traforms coords into a real address and save it in the form
+ * @param  positionSet  The latitude and the longitude of a point
+ */
 function litteralAddress(positionSet) {
 
     // Save the positions in two hidden fields in the form
@@ -61,6 +65,7 @@ function litteralAddress(positionSet) {
                 for(var i = 0; i < results.length; i ++) {
                     results[i];
 
+                    // Save the results in the form
                     if(results[i].types.indexOf("locality") >= 0) {
                         $('input[name=town]').val(results[i].long_name);
                     }
