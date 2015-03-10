@@ -45,7 +45,7 @@
             <input type="text" class="form-control mandatory" name="numbers" placeholder="Code chiffré et lettré">
         </div>
         <div class="col-sm-4">
-            <select class="form-control mandatory">
+            <select class="form-control mandatory" name="color">
                 <?php 
                     $colors = $db->get_unique_colors_rings();
                     while ($data = $colors->fetch()) {
