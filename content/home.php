@@ -2,7 +2,7 @@
 <h4 class="margin-title">Outil d'étude des populations d'oiseaux bagués</h4>
 
 <div class="row">
-  	<div class="col-sm-6 col-md-4">
+  	<div class="col-sm-6">
   		<a href="index.php?url=form">
 	    	<div class="thumbnail">
 	      		<img src="statics/pictures/plover_1.jpg" alt="Ajouter une observation">
@@ -13,7 +13,7 @@
 	    </a>
   	</div>
 
-  	<div class="col-sm-6 col-md-4">
+  	<div class="col-sm-6">
   		<a href="http://www.gonm.org/">
 	    	<div class="thumbnail">
 	      		<img src="statics/pictures/gonm_logo.jpg" alt="Site du GONm">
@@ -24,7 +24,7 @@
 	    </a>
   	</div>
 
-  	<div class="col-sm-6 col-md-4">
+  	<div class="col-sm-6">
   		<a href="http://crbpo.mnhn.fr/">
 	    	<div class="thumbnail">
 	      		<img src="statics/pictures/mnhn.jpg" alt="Site du GONm">
