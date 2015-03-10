@@ -28,8 +28,7 @@
         </div>
     </div>
 
-    <!-- map -->
-    <div class="form-group">
+    <div class="form-group"> <!-- map -->
         <label class="control-label col-sm-2"></label>
         <div class="col-sm-10">
             <div id="googleMap" style="width:100%;height:380px;"></div>
@@ -65,7 +64,7 @@
             </select>
         </div>
     </div>
-        
+
     <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-warning">Envoyer les données</button>
