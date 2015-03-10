@@ -1,4 +1,7 @@
 .map-form {
-	width :500px;
 	height:380px;
+}
+
+.margin-title {
+	margin-bottom: 40px;
 }
