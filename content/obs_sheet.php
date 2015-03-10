@@ -82,7 +82,7 @@ session_start();
 	</div>
 	<div class="col-sm-8">
   		<p>
-  			Lorem ipsum sin DOLOR ET AMET TA MERE
+  			Lorem ipsum
   		</p>
   	</div>
 </div>

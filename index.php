@@ -42,11 +42,6 @@
             include "core/database_operations.php";
             $db = new Database_operations("kentish_plover");
             
-            /*$bird = $db->get_birds("SE05980", "BLANC");
-            while($data = $bird->fetch()) {
-                echo $data["color"];
-            }*/
-
             if (isset($_GET["url"])) {
                 include "content/" . $_GET["url"]. ".php";    
             }

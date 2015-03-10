@@ -8,7 +8,6 @@ var input = $(".mandatory");
 input.on("blur keyup", function () {
      if ($(this).val().length <= 0) {
          $(this).css("background", "#FFCCCC");
-         console.log(this);
      } 
      else {
          $(this).css("background", "");
@@ -23,7 +22,6 @@ input.on("blur keyup", function () {
 $("form").on("submit", function (event) {
    event.preventDefault();
    var missing_require = false;
-   console.log(input);
    
    for (var i = 0; i < input.length; i++) {
         if ($(input[i]).val().length <= 0) {
