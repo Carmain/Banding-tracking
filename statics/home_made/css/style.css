@@ -1,3 +1,7 @@
+.padding-content {
+	padding-top: 25px;
+}
+
 .map-form {
 	height:380px;
 }
@@ -8,4 +12,8 @@
 
 a:hover{
     text-decoration: none;
+}
+
+.strong {
+	font-weight: bold;
 }
