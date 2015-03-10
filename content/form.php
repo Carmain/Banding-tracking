@@ -46,7 +46,16 @@
             <input type="text" class="form-control mandatory" name="numbers" placeholder="Code chiffré et lettré">
         </div>
         <div class="col-sm-4">
-            <input type="text" class="form-control mandatory" name="colors" placeholder="Couleur">
+            <select class="form-control mandatory">
+                <?php 
+                    $colors = $db->get_unique_colors_rings();
+                    while ($data = $colors->fetch()) {
+                        if ($data["color"] != "") {
+                            echo "<option>" . $data["color"] . "</option>";
+                        }
+                    }
+                ?>
+            </select>
         </div>
         <div class="col-sm-2">
             <select class="form-control mandatory">
@@ -56,11 +65,7 @@
             </select>
         </div>
     </div>
-
-    <input type="hidden" name="customerid">
-    <input type=hidden name=mapX value="c2415-345-8563">
-    <input type=hidden name=customerid value="c2415-345-8563">
-    
+        
     <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-warning">Envoyer les données</button>
