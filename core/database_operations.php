@@ -29,8 +29,9 @@
             return $request;
         }
 
+        // Get all the colors from the database
         function get_unique_colors_rings() {
-            return $this->database->query("SELECT DISTINCT color FROM kentish_plover"); //. $this->bird_db . "");
+            return $this->database->query("SELECT DISTINCT color FROM " . $this->bird_db);
         }
     }
 ?>
