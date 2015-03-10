@@ -42,7 +42,7 @@
     <div class="form-group">
         <label class="control-label col-sm-2">A propos de l'oiseau :</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control mandatory" name="numbers" placeholder="Code chiffré et lettré">
+            <input type="number" class="form-control mandatory" name="numbers" placeholder="Code chiffré et lettré">
         </div>
         <div class="col-sm-4">
             <select class="form-control mandatory" name="color">
