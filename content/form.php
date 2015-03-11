@@ -10,6 +10,13 @@
             <input type="text" class="form-control mandatory" name="first_name" placeholder="Prénom">
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">Temporalisation :</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control mandatory datepicker" name="date">
+        </div>
+    </div>
     
     <div class="form-group">
         <label class="control-label col-sm-2" for="pwd">Localisation :</label>
