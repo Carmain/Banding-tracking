@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 <h2>Résultat de la requête</h2>
 <div class="row">
 
@@ -20,7 +17,7 @@ session_start();
   	</div>
 </div>
 <div class="row padding-content">
-	<div class="col-sm-4">
+	<div class="col-sm-5">
 		<div class="col-sm-12">
 		  	<table class="table table-striped">
 			    <tbody>
@@ -63,7 +60,7 @@ session_start();
 								<td><?php echo $bird_info["observer"]; ?></td>
 							</tr>
 						<?php							 
-							session_destroy();
+							unset($_SESSION["bird"]);
 						}
 						else {
 							header("Location: index.php?url=form");
@@ -80,7 +77,7 @@ session_start();
 			<img src="statics/pictures/logo_warning.jpg" class="img-responsive">
 		</div>
 	</div>
-	<div class="col-sm-8">
+	<div class="col-sm-7">
   		<p>
   			Lorem ipsum
   		</p>
