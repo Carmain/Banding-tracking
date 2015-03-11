@@ -1,3 +1,29 @@
+// ---------------- DATE PICKER & DATE FORMAT ---------------- 
+
+function addZeroDate(value) {
+    if(value < 10) {
+        value = '0' + value;
+    }
+    return value;
+}
+
+$(".datepicker").datepicker({
+    format:  "dd-mm-yyyy",
+});
+
+var now = new Date();
+var day = addZeroDate(now.getDate());
+var month = addZeroDate(now.getMonth() + 1);
+var year = now.getFullYear();
+var today =  day + '-' + month + '-' + year;
+$(".datepicker").val(today);
+
+// -----------------------------------------------------------
+// -----------------------------------------------------------
+
+
+// ---------------------- CHECK INPUTS  ----------------------
+
 var input = $(".mandatory");
 
 /**
