@@ -12,8 +12,8 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-2">Temporalisation :</label>
-        <div class="col-sm-5">
+        <label class="control-label col-sm-2">Date :</label>
+        <div class="col-sm-10">
             <input type="text" class="form-control mandatory datepicker" name="date">
         </div>
     </div>
