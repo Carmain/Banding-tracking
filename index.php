@@ -11,6 +11,7 @@
 
         <link href="statics/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="statics/sweet_alert/sweet-alert.css">
+        <link rel="stylesheet" type="text/css" href="statics/datepicker/css/datepicker.css">
         <link rel="stylesheet" type="text/css" href="statics/home_made/css/style.css">
 
         <!--[if lt IE 9]>
@@ -63,6 +64,7 @@
         <script src="statics/sweet_alert/sweet-alert.min.js"></script>
         <script src="statics/jquery/jquery-2.1.3.min.js"></script>
         <script src="statics/bootstrap/js/bootstrap.min.js"></script>
+        <script src="statics/datepicker/js/bootstrap-datepicker.js"></script>
         <script src="statics/home_made/js/banding-tracking.js"></script>
 
         <?php
