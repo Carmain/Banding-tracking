@@ -64,5 +64,17 @@
         <script src="statics/jquery/jquery-2.1.3.min.js"></script>
         <script src="statics/bootstrap/js/bootstrap.min.js"></script>
         <script src="statics/home_made/js/banding-tracking.js"></script>
+
+        <?php
+        // Displays an error when the form does not return anything
+        if (isset($_SESSION["alert"])) {
+            if($_SESSION["alert"]) {
+                echo '<script type="text/javascript"> (swal("Aucune donnée retournée", 
+                      "Aucun oiseau bagué portant ces couleur et ce chiffre n\'a été trouvé", 
+                      "error"));</script>';
+            }
+        }
+        unset($_SESSION["alert"]);
+        ?>
     </body>
 </html>

@@ -14,6 +14,7 @@
         
         else {
             $url = "form";
+            $_SESSION["alert"] = true;
             //TODO : add an error in the form
         }
     }
