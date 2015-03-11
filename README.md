@@ -6,5 +6,7 @@ Actually in french, the first version concern only a local program on the kentis
 
 ####Special thanks to :
 * [sweet alert](https://github.com/t4t5/sweetalert)
+* [Stefan Petre](http://www.eyecon.ro/bootstrap-datepicker/)
+* [jdewit](https://github.com/jdewit/bootstrap-timepicker)
 * [bootstrap](http://getbootstrap.com/)
 * [MrHalfman](https://github.com/MrHalfman)
