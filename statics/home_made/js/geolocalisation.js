@@ -22,15 +22,18 @@ function litteralAddress(positionSet) {
                     // Save the results in the form
                     if(results[i].types.indexOf("locality") >= 0) {
                         $('input[name=town]').val(results[i].long_name);
+                        $('input[name=town]').css("background", "");
                     }
 
                     if (results[i].types.indexOf("route") >= 0) {
                         $('input[name=location]').val(results[i].long_name);
+                        $('input[name=location]').css("background", "");
                     }
 
                     if(results[i].types.indexOf("administrative_area_level_2") >= 0) {
                         // Display a the long name and save in a hidden field the short
                         $('input[name=department_long]').val(results[i].long_name);
+                        $('input[name=department_long]').css("background", "");
                         $('input[name=department_short]').val(results[i].short_name);
                     }
                 }

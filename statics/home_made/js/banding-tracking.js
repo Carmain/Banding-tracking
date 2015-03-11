@@ -31,7 +31,7 @@ var input = $(".mandatory");
  * @param  {events}  One or more space-separated event types and optional namespaces
  * @param  {handler} A function to execute when the event is triggered.
  */
-input.on("blur keyup", function () {
+input.on("blur", function () {
      if ($(this).val().length <= 0) {
          $(this).css("background", "#FFCCCC");
      } 
