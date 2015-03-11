@@ -31,7 +31,7 @@
     <div class="form-group"> <!-- map -->
         <label class="control-label col-sm-2"></label>
         <div class="col-sm-10">
-            <div id="googleMap" style="width:100%;height:380px;"></div>
+            <div id="googleMap" class="map-form"></div>
         </div>
 
         <input type="hidden" name="department_short">
