@@ -2,7 +2,7 @@
 <form class="form-horizontal" role="form" method="post" action="core/request_plateform.php">
     
     <div class="form-group">
-        <label class="control-label col-sm-2">Identifiants :</label>
+        <label class="control-label col-sm-2">Identifiants&nbsp;:</label>
         <div class="col-sm-5">
             <input type="text" class="form-control mandatory" name="last_name" placeholder="Nom">
         </div>
@@ -12,14 +12,14 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-2">Date :</label>
+        <label class="control-label col-sm-2">Date&nbsp;:</label>
         <div class="col-sm-10">
             <input type="text" class="form-control mandatory datepicker" name="date">
         </div>
     </div>
     
     <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Localisation :</label>
+        <label class="control-label col-sm-2" for="pwd">Localisation&nbsp;:</label>
          <div class="col-sm-10">
             <input type="text" class="form-control mandatory" name="town" placeholder="Ville">
         </div>
@@ -47,7 +47,7 @@
     </div>
     
     <div class="form-group">
-        <label class="control-label col-sm-2">A propos de l'oiseau :</label>
+        <label class="control-label col-sm-2">A propos de l'oiseau&nbsp;:</label>
         <div class="col-sm-4">
             <input type="number" class="form-control mandatory" name="numbers" placeholder="Code chiffré et lettré">
         </div>
