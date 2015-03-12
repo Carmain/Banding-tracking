@@ -1,3 +1,4 @@
 # gitignore file
 
 content/database_operations.php
+core/database_operations.php
