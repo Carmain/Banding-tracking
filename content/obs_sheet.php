@@ -41,7 +41,7 @@
 							</tr>
 							<tr>
 								<td class="strong">Date du baguage</td>
-								<td><?php echo $bird_info["banding_year"]; ?></td>
+								<td><?php echo $bird_info["date"]; ?></td>
 							</tr>
 							<tr>
 								<td class="strong">Age</td>
