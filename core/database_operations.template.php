@@ -49,5 +49,11 @@
                 "sex" => $sex
             ));
         }
+
+        function get_observers($fk_plover) {
+            $request = $this->database->prepare("SELECT * FROM observations WHERE fk_plover = :fk_plover ORDER BY date DESC");
+            $request->execute(array("fk_plover" => $fk_plover));
+            return $request;
+        }
     }
 ?>
