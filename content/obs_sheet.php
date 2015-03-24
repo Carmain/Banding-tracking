@@ -1,3 +1,7 @@
+<?php  
+$id_bird = "";
+?>
+
 <h2>Résultat de la requête</h2>
 <div class="row">
 
@@ -19,12 +23,13 @@
 <div class="row padding-content">
 	<div class="col-sm-5">
 		<div class="col-sm-12">
-		  	<table class="table table-striped">
+		  	<table class="table">
 			    <tbody>
 			      	<tr>
 			        	<?php 
 			        	if(isset($_SESSION["bird"])) { 
 			        		$bird_info = $_SESSION["bird"];
+			        		$id_bird = $bird_info["id_kentish_plover"];
 			        	?>
 
 							<tr>
@@ -78,8 +83,34 @@
 		</div>
 	</div>
 	<div class="col-sm-7">
-  		<p>
-  			Lorem ipsum
-  		</p>
+		<?php
+		if ($id_bird != "") {
+			$db = new Database_operations("kentish_plover");
+			$response = $db->get_observers($id_bird);
+		?>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Lieu d'observation</th>
+						<th>Observateur</th>
+					</tr>
+				</thead>
+				<tbody>
+  					<?php while($observers = $response->fetch()) { ?>
+  						<tr>
+							<td>
+								<?php 
+								$mysql_date = strtotime($observers["date"]);
+								echo date('d-m-Y', $mysql_date); 
+								?>
+							</td>
+							<td><?php echo $observers["town"]; ?></td>
+							<td><?php echo $observers["last_name"] . " " . $observers["first_name"]; ?></td>
+						</tr>
+  					<?php } ?>
+				</tbody>
+			</table>
+		<?php } ?>
   	</div>
 </div>
