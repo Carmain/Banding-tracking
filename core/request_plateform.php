@@ -8,7 +8,10 @@
         $bird = $db->get_birds($_POST["numbers"], $_POST["color"]);
         
         if($bird->rowCount() > 0) {
-            $_SESSION["bird"] = $bird->fetch();
+            $bird_info = $bird->fetch();
+            $_SESSION["bird"] = $bird_info;
+            $db->record_watching($bird_info["id_kentish_plover"], $_POST["last_name"], $_POST["first_name"], 
+                                   $_POST["date"], $_POST["town"], $_POST["department_long"], $_POST["location"], $_POST["sex"]);
             $url = "obs_sheet";
         }
         

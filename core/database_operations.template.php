@@ -33,5 +33,19 @@
         function get_unique_colors_rings() {
             return $this->database->query("SELECT DISTINCT color FROM " . $this->bird_db);
         }
+
+        function record_watching($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
+            $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name, date, town, department, locality, sex) VALUES (:fk_plover, :last_name, :first_name, :date, :town, :department, :locality, :sex)");
+            $request->execute(array(
+                "fk_plover" => $fk_plover,
+                "last_name" => $last_name,
+                "first_name" => $first_name,
+                "date" => $date,
+                "town" => $town,
+                "department" => $department,
+                "locality" => $locality,
+                "sex" => $sex
+            ));
+        }
     }
 ?>
