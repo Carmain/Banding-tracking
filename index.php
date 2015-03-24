@@ -42,7 +42,7 @@
         <div class ="container padding-content">
         <?php
             include "core/database_operations.php";
-            $db = new Database_operations("kentish_plover");
+            $db = new Database_operations();
             
             if (isset($_GET["url"])) {
                 include "content/" . $_GET["url"]. ".php";    

@@ -85,7 +85,6 @@ $id_bird = "";
 	<div class="col-sm-7">
 		<?php
 		if ($id_bird != "") {
-			$db = new Database_operations("kentish_plover");
 			$response = $db->get_observers($id_bird);
 		?>
 			<table class="table table-striped">

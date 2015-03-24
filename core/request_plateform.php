@@ -3,7 +3,7 @@
     $url = "home"; // GET parameter for the URL
     
     include "database_operations.php";
-    $db = new Database_operations("kentish_plover"); // create the "request object"
+    $db = new Database_operations(); // create the "request object"
     if (isset($_POST["color"]) && isset($_POST["numbers"])) {
         $bird = $db->get_birds($_POST["numbers"], $_POST["color"]);
         
