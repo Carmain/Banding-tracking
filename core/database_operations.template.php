@@ -35,13 +35,15 @@
         }
 
         function record_watching($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
+
+            $convert_date = date('Y-m-d', strtotime($date));
             $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name, date, town, department, locality, sex) VALUES (:fk_plover, :last_name, :first_name, :date, :town, :department, :locality, :sex)");
             $request->execute(array(
                 "fk_plover" => $fk_plover,
-                "last_name" => $last_name,
-                "first_name" => $first_name,
-                "date" => $date,
-                "town" => $town,
+                "last_name" => ucfirst($last_name),
+                "first_name" => ucfirst($first_name),
+                "date" => $convert_date,
+                "town" => mb_strtoupper($town, 'UTF-8'),
                 "department" => $department,
                 "locality" => $locality,
                 "sex" => $sex
