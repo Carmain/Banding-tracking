@@ -64,7 +64,7 @@
             </select>
         </div>
         <div class="col-sm-2">
-            <select class="form-control mandatory">
+            <select class="form-control mandatory" name="sex">
                 <option>Mâle</option>
                 <option>Femelle</option>
                 <option>Indéterminé</option>
