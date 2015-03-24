@@ -1,40 +1,37 @@
 <?php  
 $id_bird = "";
+ 
+if(isset($_SESSION["bird"])) { 
+	$bird_info = $_SESSION["bird"];
+	$id_bird = $bird_info["id_kentish_plover"];
 ?>
+	<h2>Résultat de la requête</h2>
 
-<h2>Résultat de la requête</h2>
+	<form method="post" action="core/pdf_creator.php">
+		<button type="submit" class="btn btn-warning">Obtenir une version PDF</button>
+	</form>
 
-<form method="post" action="core/pdf_creator.php">
-	<button type="submit" class="btn btn-warning">Obtenir une version PDF</button>
-</form>
+	<div class="row">
+	  	<div class="col-sm-4 padding-content">
+	  		<img src="statics/pictures/gonm_logo.jpg" class="img-responsive">
+	  	</div>
 
-<div class="row">
-  	<div class="col-sm-4 padding-content">
-  		<img src="statics/pictures/gonm_logo.jpg" class="img-responsive">
-  	</div>
+	  	<div class="col-sm-4">
+	  		<h2>
+	  			Historique des observations d'un Gravelot à Collier
+	  			interrompu bagué couleur <i>Charadrius alexandrinus</i>
+	  		</h2>
+	  	</div>
 
-  	<div class="col-sm-4">
-  		<h2>
-  			Historique des observations d'un Gravelot à Collier
-  			interrompu bagué couleur <i>Charadrius alexandrinus</i>
-  		</h2>
-  	</div>
-
-  	<div class="col-sm-4 padding-content">
-  		<img src="statics/pictures/plover_2.jpg" class="img-responsive">
-  	</div>
-</div>
-<div class="row padding-content">
-	<div class="col-sm-5">
-		<div class="col-sm-12">
-		  	<table class="table">
-			    <tbody>
-		        	<?php 
-		        	if(isset($_SESSION["bird"])) { 
-		        		$bird_info = $_SESSION["bird"];
-		        		$id_bird = $bird_info["id_kentish_plover"];
-		        	?>
-
+	  	<div class="col-sm-4 padding-content">
+	  		<img src="statics/pictures/plover_2.jpg" class="img-responsive">
+	  	</div>
+	</div>
+	<div class="row padding-content">
+		<div class="col-sm-5">
+			<div class="col-sm-12">
+			  	<table class="table">
+				    <tbody>
 						<tr>
 							<td class="strong">Bague acier</td>
 							<td><?php echo $bird_info["metal_ring"]; ?></td>
@@ -67,51 +64,51 @@ $id_bird = "";
 							<td class="strong">Bagueur</td>
 							<td><?php echo $bird_info["observer"]; ?></td>
 						</tr>
-					<?php							 
-						unset($_SESSION["bird"]);
-					}
-					else {
-						header("Location: index.php?url=form");
-					}
-					?>
-			    </tbody>
-			</table>
+				    </tbody>
+				</table>
+			</div>
+			<div class="col-sm-12">
+				<img src="statics/pictures/mnhn.jpg" class="img-responsive">
+			</div>
+			<div class="col-sm-12">
+				<img src="statics/pictures/logo_warning.jpg" class="img-responsive">
+			</div>
 		</div>
-		<div class="col-sm-12">
-			<img src="statics/pictures/mnhn.jpg" class="img-responsive">
-		</div>
-		<div class="col-sm-12">
-			<img src="statics/pictures/logo_warning.jpg" class="img-responsive">
-		</div>
-	</div>
-	<div class="col-sm-7">
-		<?php
-		if ($id_bird != "") {
-			$response = $db->get_observers($id_bird);
-		?>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th>Lieu d'observation</th>
-						<th>Observateur</th>
-					</tr>
-				</thead>
-				<tbody>
-  					<?php while($observers = $response->fetch()) { ?>
-  						<tr>
-							<td>
-								<?php 
-								$mysql_date = strtotime($observers["date"]);
-								echo date('d-m-Y', $mysql_date); 
-								?>
-							</td>
-							<td><?php echo $observers["town"]; ?></td>
-							<td><?php echo $observers["last_name"] . " " . $observers["first_name"]; ?></td>
+		<div class="col-sm-7">
+			<?php
+			if ($id_bird != "") {
+				$response = $db->get_observers($id_bird);
+			?>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Lieu d'observation</th>
+							<th>Observateur</th>
 						</tr>
-  					<?php } ?>
-				</tbody>
-			</table>
-		<?php } ?>
-  	</div>
-</div>
+					</thead>
+					<tbody>
+	  					<?php while($observers = $response->fetch()) { ?>
+	  						<tr>
+								<td>
+									<?php 
+									$mysql_date = strtotime($observers["date"]);
+									echo date('d-m-Y', $mysql_date); 
+									?>
+								</td>
+								<td><?php echo $observers["town"]; ?></td>
+								<td><?php echo $observers["last_name"] . " " . $observers["first_name"]; ?></td>
+							</tr>
+	  					<?php } ?>
+					</tbody>
+				</table>
+			<?php } ?>
+	  	</div>
+	</div>
+<?php							 
+	unset($_SESSION["bird"]);
+}
+else {
+	header("Location: index.php?url=form");
+}
+?>
