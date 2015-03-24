@@ -3,8 +3,12 @@ $id_bird = "";
 ?>
 
 <h2>Résultat de la requête</h2>
-<div class="row">
 
+<form method="post" action="core/pdf_creator.php">
+	<button type="submit" class="btn btn-warning">Obtenir une version PDF</button>
+</form>
+
+<div class="row">
   	<div class="col-sm-4 padding-content">
   		<img src="statics/pictures/gonm_logo.jpg" class="img-responsive">
   	</div>
