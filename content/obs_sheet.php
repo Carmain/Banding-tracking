@@ -25,53 +25,51 @@ $id_bird = "";
 		<div class="col-sm-12">
 		  	<table class="table">
 			    <tbody>
-			      	<tr>
-			        	<?php 
-			        	if(isset($_SESSION["bird"])) { 
-			        		$bird_info = $_SESSION["bird"];
-			        		$id_bird = $bird_info["id_kentish_plover"];
-			        	?>
+		        	<?php 
+		        	if(isset($_SESSION["bird"])) { 
+		        		$bird_info = $_SESSION["bird"];
+		        		$id_bird = $bird_info["id_kentish_plover"];
+		        	?>
 
-							<tr>
-								<td class="strong">Bague acier</td>
-								<td><?php echo $bird_info["metal_ring"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Numéro de la bague</td>
-								<td><?php echo $bird_info["number"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Couleur de la bague</td>
-								<td><?php echo $bird_info["color"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Date du baguage</td>
-								<td><?php echo $bird_info["date"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Age</td>
-								<td><?php echo $bird_info["age"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Sexe</td>
-								<td><?php echo $bird_info["sex"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Lieu de baguage</td>
-								<td><?php echo $bird_info["town"]; ?></td>
-							</tr>
-							<tr>
-								<td class="strong">Bagueur</td>
-								<td><?php echo $bird_info["observer"]; ?></td>
-							</tr>
-						<?php							 
-							unset($_SESSION["bird"]);
-						}
-						else {
-							header("Location: index.php?url=form");
-						}
-						?>
-			      	</tr>
+						<tr>
+							<td class="strong">Bague acier</td>
+							<td><?php echo $bird_info["metal_ring"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Numéro de la bague</td>
+							<td><?php echo $bird_info["number"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Couleur de la bague</td>
+							<td><?php echo $bird_info["color"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Date du baguage</td>
+							<td><?php echo $bird_info["date"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Age</td>
+							<td><?php echo $bird_info["age"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Sexe</td>
+							<td><?php echo $bird_info["sex"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Lieu de baguage</td>
+							<td><?php echo $bird_info["town"]; ?></td>
+						</tr>
+						<tr>
+							<td class="strong">Bagueur</td>
+							<td><?php echo $bird_info["observer"]; ?></td>
+						</tr>
+					<?php							 
+						unset($_SESSION["bird"]);
+					}
+					else {
+						header("Location: index.php?url=form");
+					}
+					?>
 			    </tbody>
 			</table>
 		</div>
