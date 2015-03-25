@@ -1,13 +1,19 @@
 <?php  
-$id_bird = "";
- 
 if(isset($_SESSION["bird"])) { 
 	$bird_info = $_SESSION["bird"];
-	$id_bird = $bird_info["id_kentish_plover"];
+	$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
+
+	$bird_info_s = base64_encode(serialize($bird_info));
+	$observers_list_s = base64_encode(serialize($observers_list->fetch()));
+	echo $bird_info_s;
+	echo $observers_list_s;
 ?>
+
 	<h2>Résultat de la requête</h2>
 
 	<form method="post" action="core/pdf_creator.php">
+		<input type="hidden" name="bird_infos" value="<?php echo $bird_info_s ?>">
+		<input type="hidden" name="observers_list" value="<?php echo $observers_list_s ?>">
 		<button type="submit" class="btn btn-warning">Obtenir une version PDF</button>
 	</form>
 
@@ -75,34 +81,32 @@ if(isset($_SESSION["bird"])) {
 			</div>
 		</div>
 		<div class="col-sm-7">
-			<?php
-			if ($id_bird != "") {
-				$response = $db->get_observers($id_bird);
-			?>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Lieu d'observation</th>
-							<th>Observateur</th>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Lieu d'observation</th>
+						<th>Observateur</th>
+					</tr>
+				</thead>
+				<tbody>
+  					<?php 
+  					$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
+  					while($observers = $observers_list->fetch()) { 
+  					?>
+  						<tr>
+							<td>
+								<?php 
+								$mysql_date = strtotime($observers["date"]);
+								echo date('d-m-Y', $mysql_date); 
+								?>
+							</td>
+							<td><?php echo $observers["town"]; ?></td>
+							<td><?php echo $observers["last_name"] . " " . $observers["first_name"]; ?></td>
 						</tr>
-					</thead>
-					<tbody>
-	  					<?php while($observers = $response->fetch()) { ?>
-	  						<tr>
-								<td>
-									<?php 
-									$mysql_date = strtotime($observers["date"]);
-									echo date('d-m-Y', $mysql_date); 
-									?>
-								</td>
-								<td><?php echo $observers["town"]; ?></td>
-								<td><?php echo $observers["last_name"] . " " . $observers["first_name"]; ?></td>
-							</tr>
-	  					<?php } ?>
-					</tbody>
-				</table>
-			<?php } ?>
+  					<?php } ?>
+				</tbody>
+			</table>
 	  	</div>
 	</div>
 <?php							 
