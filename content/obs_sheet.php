@@ -5,8 +5,6 @@ if(isset($_SESSION["bird"])) {
 
 	$bird_info_s = base64_encode(serialize($bird_info));
 	$observers_list_s = base64_encode(serialize($observers_list->fetch()));
-	echo $bird_info_s;
-	echo $observers_list_s;
 ?>
 
 	<h2>Résultat de la requête</h2>

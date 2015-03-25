@@ -6,8 +6,6 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	// Get the informations to fill the blank
 	$bird_info = utf8_decode(base64_decode($_POST["bird_infos"]));
 	$observers_list =  utf8_decode(base64_decode($_POST["observers_list"]));
-	echo $bird_info;
-	echo $observers_list;
 
 	$pdf = new FPDF(); // Create a new PDF file
 	$pdf->AddPage(); // Create a blank page
