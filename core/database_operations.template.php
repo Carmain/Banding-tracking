@@ -18,8 +18,8 @@
         
         // Return an bird with all the informations
         function get_birds($code, $color) {
-            $request = $this->database->prepare("SELECT * FROM kentish_plover" . 
-                                                " WHERE number = :number AND color = :color LIMIT 1");
+            $request = $this->database->prepare("SELECT * FROM kentish_plover
+                                                 WHERE number = :number AND color = :color LIMIT 1");
             $request->execute(array(
                                 "number" => $code,
                                 "color" => $color)
@@ -34,9 +34,8 @@
 
         function record_watching($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
             $convert_date = date('Y-m-d', strtotime($date));
-            $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name, date, town, department, locality, sex) 
-                VALUES (:fk_plover, :last_name, :first_name, :date, :town, :department, :locality, :sex)");
-            $request->execute(array(
+
+            $dict_user_form = array(
                 "fk_plover" => $fk_plover,
                 "last_name" => ucfirst(strtolower($last_name)),
                 "first_name" => ucfirst(strtolower($first_name)),
@@ -45,7 +44,29 @@
                 "department" => $department,
                 "locality" => $locality,
                 "sex" => $sex
-            ));
+            );
+
+            $checkRecord = $this->database->prepare("SELECT * FROM observations 
+                                                     WHERE fk_plover = :fk_plover AND
+                                                           last_name = :last_name AND
+                                                           first_name = :first_name AND
+                                                           date = :date AND
+                                                           town = :town AND
+                                                           department = :department AND
+                                                           locality = :locality AND
+                                                           sex = :sex 
+                                                     LIMIT 1");
+            $checkRecord->execute($dict_user_form);
+
+            $data = $checkRecord->fetch();
+
+            if (!isset($data["fk_plover"])) {
+                $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name, 
+                                                                              date, town, department, locality, sex) 
+                                                     VALUES (:fk_plover, :last_name, :first_name, :date, :town, 
+                                                             :department, :locality, :sex)");
+                $request->execute($dict_user_form);
+            }
         }
 
         function get_observers($fk_plover) {
