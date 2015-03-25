@@ -7,8 +7,21 @@ function addZeroDate(value) {
     return value;
 }
 
+function inverseFormat(date) { // to YYYY-mm-dd
+    var day = date.substring(0,2);
+    var month = date.substring(3,5);
+    var year = date.substring(6,10);
+
+    return year + "-" + month + "-" + day;
+}
+
+function isDate(date) {
+    var regex = /([0-2]\d|3[0-1])-(0\d|1[0-2])-\d{4}/
+    return regex.test(date);
+}
+
 $(".datepicker").datepicker({
-    format:  "dd-mm-yyyy",
+    format:  "dd-mm-yyyy"
 });
 
 var now = new Date();
@@ -47,23 +60,31 @@ input.on("blur", function () {
  */
 $("form").on("submit", function (event) {
    event.preventDefault();
-   var missing_require = false;
-   
-   for (var i = 0; i < input.length; i++) {
-        if ($(input[i]).val().length <= 0) {
-            $(input[i]).css("background", "#FFCCCC");
-            missing_require = true;
-        } 
-        else {
-            $(this).css("background", "");
-        }
-    }
-   
-    if (!missing_require) {
-        this.submit();
-    }
-    else {
+   var missingRequire = false;
+   var formDate = new Date(inverseFormat(input[2].value));
+
+   if (!isDate(input[2].value) || formDate > new Date()) {
         swal("Erreur dans le formulaire",
-             "Un ou plusieurs champs n'ont pas été remplis correctement", "warning");
-    }
+             "La date saisie n'est pas conforme ou dépasse celle d'ajourd'hui", 
+             "warning");
+   }
+   else {
+        for (var i = 0; i < input.length; i++) {
+            if ($(input[i]).val().length <= 0) {
+                $(input[i]).css("background", "#FFCCCC");
+                missingRequire = true;
+            } 
+            else {
+                $(this).css("background", "");
+            }
+        }
+       
+        if (!missingRequire) {
+            this.submit();
+        }
+        else {
+            swal("Erreur dans le formulaire",
+                 "Un ou plusieurs champs n'ont pas été remplis correctement", "warning");
+        }
+   }
 });
