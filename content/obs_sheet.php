@@ -2,16 +2,18 @@
 if(isset($_SESSION["bird"])) { 
 	$bird_info = $_SESSION["bird"];
 	$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
-
-	$bird_info_s = base64_encode(serialize($bird_info));
-	$observers_list_s = base64_encode(serialize($observers_list->fetch()));
+	
+	$to_replace = array("\"", "'");
+	$replace_by = array("\\\"", "'");
+	$bird_info_json = str_replace($to_replace, $replace_by, json_encode($bird_info));
+	$observers_list_json = str_replace($to_replace, $replace_by, json_encode($observers_list->fetch()));
 ?>
 
 	<h2>Résultat de la requête</h2>
 
 	<form method="post" action="core/pdf_creator.php">
-		<input type="hidden" name="bird_infos" value="<?php echo $bird_info_s ?>">
-		<input type="hidden" name="observers_list" value="<?php echo $observers_list_s ?>">
+		<input type="hidden" name="bird_infos" value='<?php echo $bird_info_json ?>'>
+		<input type="hidden" name="observers_list" value='<?php echo $observers_list_json ?>'>
 		<button type="submit" class="btn btn-warning">Obtenir une version PDF</button>
 	</form>
 
