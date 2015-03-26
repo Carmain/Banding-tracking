@@ -1,5 +1,5 @@
 <h2 class="margin-title">Remplir une observation à propos d'un gravelot</h2>
-<form class="form-horizontal" role="form" method="post" action="core/request_plateform.php">
+<form id="formdata" class="form-horizontal" role="form" method="post" action="core/request_plateform.php">
     
     <div class="form-group">
         <label class="control-label col-sm-2">Identifiants&nbsp;:</label>

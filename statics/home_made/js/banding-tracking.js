@@ -58,7 +58,7 @@ input.on("blur", function () {
  * @param  {events}  One or more space-separated event types and optional namespaces
  * @param  {handler} A function to execute when the event is triggered.
  */
-$("form").on("submit", function (event) {
+$("#formdata").on("submit", function (event) {
    event.preventDefault();
    var missingRequire = false;
    var formDate = new Date(inverseFormat(input[2].value));
