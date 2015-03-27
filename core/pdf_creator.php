@@ -163,9 +163,12 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	
 	$pdf->SetFont('Arial', '', 10);
 
+	// - Special format -
+	$color = utf8_decode(ucfirst(strtolower($bird_info["color"])));
+
 	$pdf->SetXY(55, $positionY);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["metal_ring"]), 0, 2);
-	$pdf->Cell(0, $space, utf8_decode($bird_info["color"]), 0, 2);
+	$pdf->Cell(0, $space, $color, 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["number"]), 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["date"]), 0, 2);
 
@@ -177,7 +180,8 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 
 
 
-	$pdf->Output("test.pdf", "D");
+	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" . 
+				 $color . ".pdf", "D");
 }
 ?>
 </html>
