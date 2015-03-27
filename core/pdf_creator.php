@@ -7,7 +7,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$bird_info_json = $_POST["bird_infos"];
 	$observers_list_json = $_POST["observers_list"];
 
-	$to_replace = array("\\\"", "'");
+	$to_replace = array("\\\"", "\'");
 	$replace_by = array("\"", "'");
 
 	$bird_info = json_decode(str_replace($to_replace, $replace_by, $bird_info_json), true);
@@ -208,10 +208,10 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->SetFont($font_family, '', $text_size);
 	foreach($observers as $row) {
 		$pdf->SetX(20);
-		$observer = $row["last_name"] . " " . $row["first_name"];
+		$name = str_replace(array("£dqot;", "£sqot;"), array("\"", "'"), $row["name"]);
 		$pdf->Cell(40, $cell_heigh, utf8_decode($row["date"]), 1, 0, 'C');
 		$pdf->Cell(60, $cell_heigh, utf8_decode($row["town"]), 1, 0, 'C');
-		$pdf->Cell(60, $cell_heigh, utf8_decode($observer), 1, 2, 'C');
+		$pdf->Cell(60, $cell_heigh, utf8_decode($name), 1, 2, 'C');
 	}
 
 	// -----------------------------------------------------------------------
