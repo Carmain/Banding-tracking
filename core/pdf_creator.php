@@ -203,7 +203,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->SetXY(20, 100);
 	$pdf->Cell(40, $cell_heigh, "Date", 1, 0, 'C');
 	$pdf->Cell(60, $cell_heigh, "Ville", 1, 0, 'C');
-	$pdf->Cell(60, $cell_heigh, "Observateur", 1, 2, 'C');
+	$pdf->Cell(70, $cell_heigh, "Observateur", 1, 2, 'C');
 
 	$pdf->SetFont($font_family, '', $text_size);
 	foreach($observers as $row) {
@@ -211,7 +211,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 		$name = str_replace(array("£dqot;", "£sqot;"), array("\"", "'"), $row["name"]);
 		$pdf->Cell(40, $cell_heigh, utf8_decode($row["date"]), 1, 0, 'C');
 		$pdf->Cell(60, $cell_heigh, utf8_decode($row["town"]), 1, 0, 'C');
-		$pdf->Cell(60, $cell_heigh, utf8_decode($name), 1, 2, 'C');
+		$pdf->Cell(70, $cell_heigh, utf8_decode($name), 1, 2, 'C');
 	}
 
 	// -----------------------------------------------------------------------
