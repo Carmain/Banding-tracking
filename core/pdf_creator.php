@@ -11,11 +11,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$replace_by = array("\"", "'");
 
 	$bird_info = json_decode(str_replace($to_replace, $replace_by, $bird_info_json), true);
-	$observers_list = json_decode(str_replace($to_replace, $replace_by, $observers_list_json), true);
-
-	print_r($bird_info);
-	echo "<br><br>";
-	print_r($observers_list);
+	$observers = json_decode(str_replace($to_replace, $replace_by, $observers_list_json), true);
 
 	ob_get_clean();
 	class PDF extends FPDF {
@@ -225,3 +221,4 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" . 
 				 $color . ".pdf", "D");
 }
+?>
