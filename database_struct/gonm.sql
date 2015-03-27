@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2+deb7u1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Ven 27 Mars 2015 à 03:34
--- Version du serveur: 5.5.41
--- Version de PHP: 5.4.36-0+deb7u3
+-- Client :  127.0.0.1
+-- Généré le :  Ven 27 Mars 2015 à 03:37
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `gonm`
+-- Base de données :  `gonm`
 --
 
 -- --------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `kentish_plover` (
   `color` varchar(20) DEFAULT NULL,
   `sex` varchar(1) NOT NULL,
   `age` varchar(3) NOT NULL,
-  `Date` varchar(10) NOT NULL,
+  `date` varchar(10) NOT NULL,
   `banding_time` varchar(5) DEFAULT NULL,
   `town` varchar(27) NOT NULL,
   `department` varchar(2) NOT NULL,
@@ -58,12 +58,12 @@ CREATE TABLE IF NOT EXISTS `observations` (
   `last_name` varchar(200) NOT NULL,
   `first_name` varchar(200) NOT NULL,
   `date` date NOT NULL,
-  `town` int(11) NOT NULL,
-  `department` int(11) NOT NULL,
+  `town` varchar(250) NOT NULL,
+  `department` varchar(250) NOT NULL,
   `locality` varchar(200) NOT NULL,
-  `sex` tinyint(1) DEFAULT NULL,
+  `sex` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_observations`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=131 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
