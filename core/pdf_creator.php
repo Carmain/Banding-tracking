@@ -117,24 +117,27 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 		function Footer()
 		{
 		    $this->SetY(-15); // Positionnement à 1,5 cm du bas
-		    $this->SetFont('Arial','I',8);
-		    $this->Cell(0, 10,'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C'); 	
+		    $this->SetFont('Arial', '', 8);
+		    $this->Cell(0, 2,'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C'); 	
 		}
 	}
 
-	$titre = "Historique des observations d'un Gravelot à Collier interrompu bagué couleur " .
-			 "<i>Charadrius alexandrinus</i>";
-
 	$pdf = new PDF();
 	$pdf->AddPage();
+	$pdf->AliasNbPages();
 	$pdf->setAutoPageBreak(true, 10);
 
 	// ---- Title ----
-	$pdf->Image("../statics/pictures/gonm_logo.jpg", 0, 10, 80);
-	$pdf->SetFont('Arial', 'B', 16);
-	$pdf->SetLeftMargin(80);
-	$pdf->SetY(20);
-	$pdf->WriteHTML(utf8_decode($titre));
+	$pdf->Image("../statics/pictures/gonm_logo.jpg", 0, 10, 60);
+	$pdf->Image("../statics/pictures/plover_2.jpg", 140, 10, 60);
+	$pdf->SetFont('Arial', 'B', 15);
+	$pdf->SetLeftMargin(55);
+	$pdf->SetY(15);
+	$pdf->MultiCell(80, 6, utf8_decode("Historique des observations " .
+					"d'un Gravelot à Collier interrompu bagué couleur"), 0, 'C');
+	$pdf->SetFont('Arial', 'I', 15);
+	$pdf->SetX(65);
+	$pdf->Cell(0, 6, "Charadrius alexandrinus", 0, 2);
 
 	// ---- Reset ----
 	$pdf->SetLeftMargin(0);
@@ -144,7 +147,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	// -- Header --
 	$pdf->SetFont('Arial', 'B', 10);
 	$space = 6;
-	$positionY = 75;
+	$positionY = 65;
 	
 	$pdf->SetXY(20, $positionY);
 	$pdf->Cell(0, $space, "Bague Acier :", 0, 2);
