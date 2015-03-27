@@ -208,9 +208,21 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	
 	// -------------------------------------------------------
 	// --------------------- Users datas ---------------------
-	
-	// -------------------------------------------------------
-	// -------------------------------------------------------
+		
+	$pdf->SetFont($font_family, 'B', $text_size);
+	$pdf->SetXY(20, 100);
+	$pdf->Cell(40, $cell_heigh, "Date", 1, 0, 'C');
+	$pdf->Cell(60, $cell_heigh, "Ville", 1, 0, 'C');
+	$pdf->Cell(60, $cell_heigh, "Observateur", 1, 2, 'C');
+
+	$pdf->SetFont($font_family, '', $text_size);
+	foreach($observers as $row) {
+		$pdf->SetX(20);
+		$observer = $row["last_name"] . " " . $row["first_name"];
+		$pdf->Cell(40, $cell_heigh, utf8_decode($row["date"]), 1, 0, 'C');
+		$pdf->Cell(60, $cell_heigh, utf8_decode($row["town"]), 1, 0, 'C');
+		$pdf->Cell(60, $cell_heigh, utf8_decode($observer), 1, 2, 'C');
+	}
 
 	// -----------------------------------------------------------------------
 	// -----------------------------------------------------------------------
