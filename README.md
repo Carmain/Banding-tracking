@@ -8,4 +8,5 @@ Actually in french, the first version concern only a local program on the kentis
 * [sweet alert](https://github.com/t4t5/sweetalert)
 * [Stefan Petre](http://www.eyecon.ro/bootstrap-datepicker/)
 * [bootstrap](http://getbootstrap.com/)
+* [FPDF](http://www.fpdf.org/)
 * [MrHalfman](https://github.com/MrHalfman)
