@@ -74,5 +74,24 @@
             $request->execute(array("fk_plover" => $fk_plover));
             return $request;
         }
+
+        function save_observations() {
+            $observations = array();
+            $users = $this->database->query("SELECT * FROM observations");
+            while ($user_data = $users->fetch()) {
+                $bird = $this->database->prepare("SELECT banding_year, date, metal_ring, color, number, age, sex 
+                                                  FROM kentish_plover WHERE id_kentish_plover = :id LIMIT 1");
+                $bird->execute(array("id" => $user_data["fk_plover"]));
+
+                while ($bird_info = $bird->fetch()) {
+                    array_push($observations, array($bird_info["banding_year"], $bird_info["date"], $bird_info["metal_ring"],
+                                                    $bird_info["number"], $bird_info["color"], $bird_info["sex"], $bird_info["age"],
+
+                                                    $user_data["date"], $user_data["last_name"] . ' ' . $user_data["first_name"],
+                                                    $user_data["town"], $user_data["department"], $user_data["locality"]));
+                }
+            }
+            return $observations;
+        }
     }
 ?>
