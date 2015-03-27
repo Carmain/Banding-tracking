@@ -181,7 +181,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	
 	$color = utf8_decode(ucfirst(strtolower($bird_info["color"])));
 
-	$pdf->SetXY(55, $start_positionY_bird);
+	$pdf->SetXY(52, $start_positionY_bird);
 	$pdf->Cell(0, $cell_heigh, utf8_decode($bird_info["metal_ring"]), 0, 2);
 	$pdf->Cell(0, $cell_heigh, $color, 0, 2);
 	$pdf->Cell(0, $cell_heigh, utf8_decode($bird_info["number"]), 0, 2);
