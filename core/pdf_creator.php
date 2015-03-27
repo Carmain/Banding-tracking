@@ -127,7 +127,9 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->AliasNbPages();
 	$pdf->setAutoPageBreak(true, 10);
 
-	// ---- Title ----
+	// -----------------------------------------------------------------------
+	// -------------------------------- Title --------------------------------
+
 	$pdf->Image("../statics/pictures/gonm_logo.jpg", 0, 10, 60);
 	$pdf->Image("../statics/pictures/plover_2.jpg", 140, 10, 60);
 	$pdf->SetFont('Arial', 'B', 15);
@@ -138,16 +140,23 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->SetFont('Arial', 'I', 15);
 	$pdf->SetX(65);
 	$pdf->Cell(0, 6, "Charadrius alexandrinus", 0, 2);
+	// -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
-	// ---- Reset ----
-	$pdf->SetLeftMargin(0);
+	$pdf->SetLeftMargin(0); // Reset
 
-	// ---- Content ----
+	// -----------------------------------------------------------------------
+	// ------------------------------- Content -------------------------------
+
+	// -------------------------------------------------------
+	// ------------------ bird informations ------------------
 	
-	// -- Header --
 	$pdf->SetFont('Arial', 'B', 10);
 	$space = 6;
 	$positionY = 65;
+	
+	// ------------------------
+	// -------- Titles --------
 	
 	$pdf->SetXY(20, $positionY);
 	$pdf->Cell(0, $space, "Bague Acier :", 0, 2);
@@ -160,10 +169,15 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Cell(0, $space, "Sexe :", 0, 2);
 	$pdf->Cell(0, $space, "Lieu de Baguage :", 0, 2);
 	$pdf->Cell(0, $space, "Bageur : ", 0, 2);
+	// ------------------------
+	// ------------------------
 	
 	$pdf->SetFont('Arial', '', 10);
 
-	// - Special format -
+
+	// ------------------------
+	// ----- Informations -----
+	
 	$color = utf8_decode(ucfirst(strtolower($bird_info["color"])));
 
 	$pdf->SetXY(55, $positionY);
@@ -178,8 +192,21 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Cell(0, $space, utf8_decode($bird_info["town"]), 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["observer"]), 0, 2);
 
+	// -------------------------------------------------------
+	// -------------------------------------------------------
+	
+	// -------------------------------------------------------
+	// -------------------- Left pictures --------------------
+	
+	// -------------------------------------------------------
+	// -------------------------------------------------------
+
+	// -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 
+
+	// Send PDF
 	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" . 
 				 $color . ".pdf", "D");
 }
