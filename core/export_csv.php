@@ -19,6 +19,6 @@ $data_observations = $db->save_observations();
 foreach ($data_observations as $row) {
 	fputcsv($output, $row);
 }
-
+fpassthru($output);
 http_redirect("Location: ../index.php?url=home");
 ?>
