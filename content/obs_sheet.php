@@ -2,11 +2,16 @@
 if(isset($_SESSION["bird"])) { 
 	$bird_info = $_SESSION["bird"];
 	$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
-	
+
+	$observers_array = array();
+	while($observers = $observers_list->fetch()) { 
+		array_push($observers_array, $observers);
+	}
+
 	$to_replace = array("\"", "'");
 	$replace_by = array("\\\"", "'");
 	$bird_info_json = str_replace($to_replace, $replace_by, json_encode($bird_info));
-	$observers_list_json = str_replace($to_replace, $replace_by, json_encode($observers_list->fetch()));
+	$observers_list_json = str_replace($to_replace, $replace_by, json_encode($observers_array));
 ?>
 
 	<h2>Résultat de la requête</h2>
