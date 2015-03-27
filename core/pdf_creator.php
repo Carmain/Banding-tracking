@@ -153,18 +153,18 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	
 	$pdf->SetFont('Arial', 'B', 10);
 	$space = 6;
-	$positionY = 65;
+	$start_positionY_bird = 65;
 	
 	// ------------------------
 	// -------- Titles --------
 	
-	$pdf->SetXY(20, $positionY);
+	$pdf->SetXY(20, $start_positionY_bird);
 	$pdf->Cell(0, $space, "Bague Acier :", 0, 2);
 	$pdf->Cell(0, $space, "Bague Couleur :", 0, 2);
 	$pdf->Cell(0, $space, "Code :", 0, 2);
 	$pdf->Cell(0, $space, "Date de baguage : ", 0, 2);
 
-	$pdf->SetXY(120, $positionY);
+	$pdf->SetXY(120, $start_positionY_bird);
 	$pdf->Cell(0, $space, utf8_decode("Âge :"), 0, 2);
 	$pdf->Cell(0, $space, "Sexe :", 0, 2);
 	$pdf->Cell(0, $space, "Lieu de Baguage :", 0, 2);
@@ -180,13 +180,13 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	
 	$color = utf8_decode(ucfirst(strtolower($bird_info["color"])));
 
-	$pdf->SetXY(55, $positionY);
+	$pdf->SetXY(55, $start_positionY_bird);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["metal_ring"]), 0, 2);
 	$pdf->Cell(0, $space, $color, 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["number"]), 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["date"]), 0, 2);
 
-	$pdf->SetXY(152, $positionY);
+	$pdf->SetXY(152, $start_positionY_bird);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["age"]), 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["sex"]), 0, 2);
 	$pdf->Cell(0, $space, utf8_decode($bird_info["town"]), 0, 2);
@@ -196,7 +196,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	// -------------------------------------------------------
 	
 	// -------------------------------------------------------
-	// -------------------- Left pictures --------------------
+	// --------------------- Users datas ---------------------
 	
 	// -------------------------------------------------------
 	// -------------------------------------------------------
