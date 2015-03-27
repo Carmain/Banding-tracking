@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-    </head>
-
 <?php
 require("../statics/fpdf/fpdf.php");
 
@@ -231,5 +225,3 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" . 
 				 $color . ".pdf", "D");
 }
-?>
-</html>
