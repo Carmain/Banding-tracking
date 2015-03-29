@@ -7,7 +7,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["id"])) { ?>
   	<div class="col-sm-6">
 		<form method="post" action="index.php?url=admin">
 			<input type="hidden" name="csv" value="true">
-			<button type="submit" class="btn btn-success">
+			<button type="submit" class="btn btn-success btn-block">
 				<span class="glyphicon glyphicon glyphicon-file big-icon" aria-hidden="true"></span>
 				<p class="big-text-button">Exporter toutes les données en CSV<p>
 			</button>
@@ -16,7 +16,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["id"])) { ?>
   	<div class="col-sm-6">
 		<form method="post" action="core/connection.php">
 			<input type="hidden" name="disconnect" value="true">
-			<button type="submit" class="btn btn-danger">
+			<button type="submit" class="btn btn-danger btn-block">
 				<span class="glyphicon glyphicon-remove-circle big-icon" aria-hidden="true"></span>
 				<p class="big-text-button">Se déconnecter de l'espace d'administration<p>
 			</button>
