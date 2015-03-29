@@ -3,14 +3,26 @@ if (isset($_SESSION["username"]) && isset($_SESSION["id"])) { ?>
 
 	<h2 class="margin-title">Exporter les observations en CSV</h2>
 
-	<form method="post" action="index.php?url=admin">
-		<input type="hidden" name="csv" value="true">
-		<button type="submit" class="btn btn-warning">Exporter toutes les données en CSV</button>
-	</form>
-	<form method="post" action="core/connection.php">
-		<input type="hidden" name="disconnect" value="true">
-		<button type="submit" class="btn btn-warning">Se déconnecter de l'espace d'administration</button>
-	</form>
+<div class="row">
+  	<div class="col-sm-6">
+		<form method="post" action="index.php?url=admin">
+			<input type="hidden" name="csv" value="true">
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon glyphicon-file big-icon" aria-hidden="true"></span>
+				<p class="big-text-button">Exporter toutes les données en CSV<p>
+			</button>
+		</form>
+  	</div>
+  	<div class="col-sm-6">
+		<form method="post" action="core/connection.php">
+			<input type="hidden" name="disconnect" value="true">
+			<button type="submit" class="btn btn-danger">
+				<span class="glyphicon glyphicon-remove-circle big-icon" aria-hidden="true"></span>
+				<p class="big-text-button">Se déconnecter de l'espace d'administration<p>
+			</button>
+		</form>
+  	</div>
+</div>
 
 	<?php
 	if (isset($_POST["csv"])) {
