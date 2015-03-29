@@ -1,5 +1,4 @@
 <?php
-
     class Database_operations {
         private $database;
         
@@ -92,6 +91,19 @@
                 }
             }
             return $observations;
+        }
+
+        function connect($user, $password) {
+            $request = $this->database->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+            $request->execute(array(
+                'username' => $user,
+                'password' => hash('sha512', $password)));
+
+            $result = $request->fetch();
+            if ($result) {
+                $_SESSION['id'] = $result['id_user'];
+                $_SESSION['username'] = $user;
+            }
         }
     }
 ?>
