@@ -1,10 +1,15 @@
-<?php if (isset($_SESSION["user"]) && isset($_SESSION["id"])) { ?>
+<?php
+if (isset($_SESSION["username"]) && isset($_SESSION["id"])) { ?>
 
 	<h2 class="margin-title">Exporter les observations en CSV</h2>
 
-	<form method="post" action="content/admin.php">
+	<form method="post" action="index.php?url=admin">
 		<input type="hidden" name="csv" value="true">
 		<button type="submit" class="btn btn-warning">Exporter toutes les données en CSV</button>
+	</form>
+	<form method="post" action="core/connection.php">
+		<input type="hidden" name="disconnect" value="true">
+		<button type="submit" class="btn btn-warning">Se déconnecter de l'espace d'administration</button>
 	</form>
 
 	<?php
@@ -33,7 +38,7 @@
 else {
 ?>
 	<div class="wrapper">
-    	<form class="form-signin">       
+    	<form class="form-signin" method="post" action="core/connection.php">       
 	      	<h2 class="form-signin-heading">Connexion</h2>
 	      	<input type="text" class="form-control" name="username" placeholder="Nom d'utilisateur"/>
 	      	<input type="password" class="form-control margin-form" name="password" placeholder="Password"/>
