@@ -1,7 +1,7 @@
 <h2 class="margin-title">Remplir une observation à propos d'un gravelot</h2>
 
 <button id="explanation-button" class="btn btn-info">Comment remplir ce formulaire ?</button>
-<div id="form-explanation" hidden="true">
+<div class="text-content" hidden="true">
     <p>
         La ligne des identifiants correspond à votre <b>nom</b> suivi de votre <b>prénom</b>. 
         Chacune de ses informations à une case propre.
@@ -29,9 +29,38 @@
         Concernant l'inscription numérique, celle-ci est toujours sur une bague blanche. 
         La combinaison à reporter est donc composée du N° et de la couleur de la bague sur la patte opposée.
     </p>
-    <p>
-        En cas de bague manquante, merci de contacter <span class="mail-style">james.jb[at]wanadoo.fr</span> (n'oubliez pas de remplacer "[at]" par un "@")
-    </p>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="col-sm-6">
+                    <div class="thumbnail">
+                        <img src="statics/pictures/22Y_27.jpg" alt="22 jaune">
+                    </div>
+            </div>
+
+            <div class="col-sm-6">
+                    <div class="thumbnail">
+                        <img src="statics/pictures/51R_16.jpg" alt="51 rouge">
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <p>
+                En titre d'exemple avec les deux les deux illustrations suivantes, 
+                la lecture de bague donnera : 
+                <ul>
+                    <li><b>22 JAUNE</b> pour celui de gauche</li>
+                    <li><b>51 ROUGE</b> pour celui de droite</li>
+                </ul>
+                
+                <br>
+                
+                En cas de bague manquante, merci de contacter <span class="mail-style">james.jb[at]wanadoo.fr</span> 
+                (n'oubliez pas de remplacer "[at]" par un "@")
+            </p>
+        </div>
+    </div>
 </div>
 
 <form id="formdata" class="form-horizontal" role="form" method="post" action="core/request_plateform.php">

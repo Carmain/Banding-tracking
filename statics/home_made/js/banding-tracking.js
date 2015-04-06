@@ -93,6 +93,6 @@ $("#formdata").on("submit", function (event) {
 // -----------------------------------------------------------
 
 $("#explanation-button").click(function(){
-    $("#form-explanation").toggle("slow");
+    $(".text-content").toggle("slow");
 
 });
