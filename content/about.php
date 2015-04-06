@@ -12,8 +12,26 @@
 		
 		Fièrement conçu et développé par Martin Billard pour le GONm 
 		<ul>
-			<li><a href="https://www.linkedin.com/pub/martin-billard/85/477/1b1">LinkedIn</a></li>
-			<li><a href="https://github.com/Carmain">GitHub</a></li>
+			<li><a href="https://www.linkedin.com/pub/martin-billard/85/477/1b1" target="_blank">LinkedIn</a></li>
+			<li><a href="https://github.com/Carmain" target="_blank">GitHub</a></li>
 		</ul>
 	</p>
+</div>
+
+<div class="row">
+  	<div class="col-sm-4">
+    	<div class="thumbnail">
+      		<img src="statics/pictures/plover_1.jpg" alt="Gravelot à collier interrompu">
+    	</div>
+  	</div>
+  	<div class="col-sm-4">
+    	<div class="thumbnail">
+      		<img src="statics/pictures/22Y_27.jpg" alt="Gravelot à collier interrompu">
+    	</div>
+  	</div>
+  	<div class="col-sm-4">
+    	<div class="thumbnail">
+      		<img src="statics/pictures/51R_16.jpg" alt="Gravelot à collier interrompu">
+    	</div>
+  	</div>
 </div>

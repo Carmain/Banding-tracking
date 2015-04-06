@@ -15,7 +15,7 @@
 
 	<div class="col-sm-3">
 	  	<div class="col-sm-12">
-	  		<a href="http://www.gonm.org/">
+	  		<a href="http://www.gonm.org/" target="_blank">
 		    	<div class="thumbnail">
 		      		<img src="statics/pictures/gonm_logo.jpg" alt="Site du GONm">
 		      		<div class="caption">
@@ -26,7 +26,7 @@
 	  	</div>
 
 	  	<div class="col-sm-12">
-	  		<a href="http://crbpo.mnhn.fr/">
+	  		<a href="http://crbpo.mnhn.fr/" target="_blank">
 		    	<div class="thumbnail">
 		      		<img src="statics/pictures/mnhn.jpg" alt="Site du GONm">
 		      		<div class="caption">
