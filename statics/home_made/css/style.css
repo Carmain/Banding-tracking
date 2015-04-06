@@ -56,3 +56,17 @@ a:hover{
 	  	padding: 10px;
 	}
 }
+
+.mail-style {
+	font-weight: bold;
+	color: red;
+}
+
+#explanation-button {
+	margin-bottom: 40px;
+}
+
+#form-explanation {
+	margin-bottom: 40px;
+	font-size: 15px;
+}
