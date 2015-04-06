@@ -55,12 +55,13 @@
                 </ul>
                 
                 <br>
-                
-                En cas de bague manquante, merci de contacter <span class="mail-style">james.jb[at]wanadoo.fr</span> 
-                (n'oubliez pas de remplacer "[at]" par un "@")
             </p>
         </div>
     </div>
+    <p>
+        En cas de bague manquante, merci de contacter <span class="mail-style">james.jb[at]wanadoo.fr</span> 
+        (n'oubliez pas de remplacer "[at]" par un "@")
+    </p>
 </div>
 
 <form id="formdata" class="form-horizontal" role="form" method="post" action="core/request_plateform.php">
