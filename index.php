@@ -35,6 +35,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.php?url=form">Vous avez vu un gravelot ?</a></li>
                         <li><a href="index.php?url=admin">Administration</a></li>
+                        <li><a href="index.php?url=about">A propos</a></li>
                     </ul>
                 </div>
             </div>
