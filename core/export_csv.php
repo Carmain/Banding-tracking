@@ -15,7 +15,7 @@ fputcsv($output, array('Année du baguage', 'Date du baguage', 'Bague métal',
 					   'Nom du lecteur', 'Ville de lecture', 'Département de lecture', 
 					   'Lieu-dit de lecture'));
 
-$data_observations = $db->save_observations();
+$data_observations = $db->csv_save();
 foreach ($data_observations as $row) {
 	fputcsv($output, $row);
 }

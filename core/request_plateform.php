@@ -10,7 +10,7 @@
         if($bird->rowCount() > 0) {
             $bird_info = $bird->fetch();
             $_SESSION["bird"] = $bird_info;
-            $db->record_watching($bird_info["id_kentish_plover"], $_POST["last_name"], $_POST["first_name"], 
+            $db->save_record($bird_info["id_kentish_plover"], $_POST["last_name"], $_POST["first_name"], 
                                    $_POST["date"], $_POST["town"], $_POST["department_short"], $_POST["location"], $_POST["sex"]);
             $url = "obs_sheet";
         }
