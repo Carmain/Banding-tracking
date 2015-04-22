@@ -10,7 +10,7 @@
 		
 		<br>
 		
-		Fièrement conçu et développé par Martin Billard pour le GONm 
+		Conçu et développé par Martin Billard pour le GONm 
 		<ul>
 			<li><a href="https://www.linkedin.com/pub/martin-billard/85/477/1b1" target="_blank">LinkedIn</a></li>
 			<li><a href="https://github.com/Carmain" target="_blank">GitHub</a></li>
@@ -35,3 +35,7 @@
     	</div>
   	</div>
 </div>
+
+<?php
+	$db->transfer();
+?>
