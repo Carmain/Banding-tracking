@@ -31,18 +31,17 @@
             return $this->database->query("SELECT DISTINCT color FROM kentish_plover");
         }
 
-        function record_watching($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
+        // Save the record form a user to the database
+        function save_record($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
             $convert_date = date('Y-m-d', strtotime($date));
 
             $dict_user_form = array(
                 "fk_plover" => $fk_plover,
-                "last_name" => ucfirst(strtolower($last_name)),
+                "last_name" => mb_strtoupper($last_name, 'UTF-8'),
                 "first_name" => ucfirst(strtolower($first_name)),
                 "date" => $convert_date,
                 "town" => mb_strtoupper($town, 'UTF-8'),
-                "department" => $department,
-                "locality" => $locality,
-                "sex" => $sex
+                "department" => $department
             );
 
             $checkRecord = $this->database->prepare("SELECT * FROM observations 
@@ -51,9 +50,7 @@
                                                            first_name = :first_name AND
                                                            date = :date AND
                                                            town = :town AND
-                                                           department = :department AND
-                                                           locality = :locality AND
-                                                           sex = :sex 
+                                                           department = :department
                                                      LIMIT 1");
             $checkRecord->execute($dict_user_form);
 
@@ -64,17 +61,21 @@
                                                                               date, town, department, locality, sex) 
                                                      VALUES (:fk_plover, :last_name, :first_name, :date, :town, 
                                                              :department, :locality, :sex)");
+                $dict_user_form["locality"]  = $locality;
+                $dict_user_form["sex"]  = $sex;
                 $request->execute($dict_user_form);
             }
         }
 
+        // Get all the observers for a specific bird
         function get_observers($fk_plover) {
             $request = $this->database->prepare("SELECT * FROM observations WHERE fk_plover = :fk_plover ORDER BY date DESC");
             $request->execute(array("fk_plover" => $fk_plover));
             return $request;
         }
 
-        function save_observations() {
+        // Method for the export of all the data
+        function csv_save() {
             $observations = array();
             $users = $this->database->query("SELECT * FROM observations");
             while ($user_data = $users->fetch()) {
@@ -93,6 +94,7 @@
             return $observations;
         }
 
+        // Connect the user to the administration page
         function connect($user, $password) {
             $request = $this->database->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
             $request->execute(array(
