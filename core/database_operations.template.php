@@ -105,5 +105,80 @@
                 $_SESSION['username'] = $user;
             }
         }
+
+
+        // ------------------------------------ EXPORT DATA ------------------------------------
+        /** Was used only for a specific case. Juste here in case. **/
+
+        // Check if a bird already exists in the database
+        function exist($metal_ring, $color, $number) {
+            $bird_data = array(
+                "number" => $number,
+                "metal_ring" => $metal_ring,
+                "color" => $color
+            );
+
+            $checkRecord = $this->database->prepare("SELECT * FROM kentish_plover 
+                                                     WHERE number = :number AND
+                                                           metal_ring = :metal_ring AND
+                                                           color = :color
+                                                     LIMIT 1");
+            $checkRecord->execute($bird_data);
+
+            $data = $checkRecord->fetch();
+
+            if ($data["id_kentish_plover"]) {
+                return $data["id_kentish_plover"];
+            }
+            else {
+                return "NO NUMBER";
+            }
+
+        }
+
+        // Link the all data with a specific plover and record the observation.
+        function transfer() {
+
+            $line_number = 2;
+            $line_error =  array();
+
+            $old_data = $this->database->query("SELECT * FROM old_data");
+            while ($data = $old_data->fetch()) {
+
+                // Convert the date
+                $to_date = strtotime(str_replace("/", "-", $data["date"]));
+                $date = date("Y-m-d", $to_date);
+
+                // Check if all the informations are here
+                if ($data["metal_ring"] == "" || $data["color"] == "" || $data["number"] == "" 
+                    || $data["town"] == "" || $data["department"] == "" || $date == "1970-01-01") {
+                    echo "<br>----------------- SKIP -----------------------<br><br>";
+                }
+                else {
+
+                    // Check if we could find a real plover to link
+                    $result_link = $this->exist($data["metal_ring"], $data["color"], $data["number"]);
+                    if($result_link == "NO NUMBER") {
+                        array_push($line_error, $line_number);
+                    }
+                    else {
+
+                        // Record the observation in the database
+                        $this->save_record($result_link, $data["last_name"], $data["first_name"], $date, 
+                                    $data["town"], $data["department"], $data["locality"], $data["sex"]);
+                        echo "OK <br>";
+                        // echo $line_number . " : The ID of the plover is " . $result_link . '<br>';
+                    }
+                    $line_number++;
+                }
+            }
+
+            echo "<br><br><br><br><br>";
+
+            // Display the error in the file if we have a problem. 
+            foreach ($line_error as $value) {
+                echo $value . "<br>";
+            }
+        }
     }
 ?>
