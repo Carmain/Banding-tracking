@@ -1,7 +1,7 @@
 <?php
     class Database_operations {
         private $database;
-        
+
         // Class constructor
         function __construct() {
             try {
@@ -14,7 +14,7 @@
                 die('Error : '.$e->getMessage());
             }
         }
-        
+
         // Return an bird with all the informations
         function get_birds($code, $color) {
             $request = $this->database->prepare("SELECT * FROM kentish_plover
@@ -32,7 +32,8 @@
         }
 
         // Save the record form a user to the database
-        function save_record($fk_plover, $last_name, $first_name, $date, $town, $department, $locality, $sex) {
+        function save_record($fk_plover, $last_name, $first_name, $date, $town, $department, $locality,
+                             $map_x, $map_y, $sex, $comment) {
             $convert_date = date('Y-m-d', strtotime($date));
 
             $dict_user_form = array(
@@ -44,7 +45,7 @@
                 "department" => $department
             );
 
-            $checkRecord = $this->database->prepare("SELECT * FROM observations 
+            $checkRecord = $this->database->prepare("SELECT * FROM observations
                                                      WHERE fk_plover = :fk_plover AND
                                                            last_name = :last_name AND
                                                            first_name = :first_name AND
@@ -57,12 +58,16 @@
             $data = $checkRecord->fetch();
 
             if (!isset($data["fk_plover"])) {
-                $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name, 
-                                                                              date, town, department, locality, sex) 
-                                                     VALUES (:fk_plover, :last_name, :first_name, :date, :town, 
-                                                             :department, :locality, :sex)");
+                $request = $this->database->prepare("INSERT INTO observations(fk_plover, last_name, first_name,
+                                                                              date, town, department, locality,
+                                                                              map_x, map_y, sex, comment)
+                                                     VALUES (:fk_plover, :last_name, :first_name, :date, :town,
+                                                             :department, :locality, :map_x, :map_y, :sex, :comment)");
                 $dict_user_form["locality"]  = $locality;
+                $dict_user_form["map_x"]  = $map_x;
+                $dict_user_form["map_y"]  = $map_y;
                 $dict_user_form["sex"]  = $sex;
+                $dict_user_form["comment"]  = $comment;
                 $request->execute($dict_user_form);
             }
         }
@@ -79,16 +84,16 @@
             $observations = array();
             $users = $this->database->query("SELECT * FROM observations");
             while ($user_data = $users->fetch()) {
-                $bird = $this->database->prepare("SELECT banding_year, date, metal_ring, color, number, age, sex 
+                $bird = $this->database->prepare("SELECT banding_year, date, metal_ring, color, number, age, sex
                                                   FROM kentish_plover WHERE id_kentish_plover = :id LIMIT 1");
                 $bird->execute(array("id" => $user_data["fk_plover"]));
 
                 while ($bird_info = $bird->fetch()) {
                     array_push($observations, array($bird_info["banding_year"], $bird_info["date"], $bird_info["metal_ring"],
                                                     $bird_info["number"], $bird_info["color"], $bird_info["sex"], $bird_info["age"],
-
                                                     $user_data["date"], $user_data["last_name"] . ' ' . $user_data["first_name"],
-                                                    $user_data["town"], $user_data["department"], $user_data["locality"]));
+                                                    $user_data["town"], $user_data["department"], $user_data["locality"], $user_data["map_x"],
+                                                    $user_data["map_y"], $user_data["comment"]));
                 }
             }
             return $observations;
@@ -120,7 +125,7 @@
                 "color" => $color
             );
 
-            $checkRecord = $this->database->prepare("SELECT * FROM kentish_plover 
+            $checkRecord = $this->database->prepare("SELECT * FROM kentish_plover
                                                      WHERE number = :number AND
                                                            metal_ring = :metal_ring AND
                                                            color = :color
@@ -152,7 +157,7 @@
                 $date = date("Y-m-d", $to_date);
 
                 // Check if all the informations are here
-                if ($data["metal_ring"] == "" || $data["color"] == "" || $data["number"] == "" 
+                if ($data["metal_ring"] == "" || $data["color"] == "" || $data["number"] == ""
                     || $data["town"] == "" || $data["department"] == "" || $date == "1970-01-01") {
                     echo "<br>----------------- SKIP -----------------------<br><br>";
                 }
@@ -166,7 +171,7 @@
                     else {
 
                         // Record the observation in the database
-                        $this->save_record($result_link, $data["last_name"], $data["first_name"], $date, 
+                        $this->save_record($result_link, $data["last_name"], $data["first_name"], $date,
                                     $data["town"], $data["department"], $data["locality"], $data["sex"]);
                         echo "OK <br>";
                         // echo $line_number . " : The ID of the plover is " . $result_link . '<br>';
@@ -177,7 +182,7 @@
 
             echo "<br><br><br><br><br>";
 
-            // Display the error in the file if we have a problem. 
+            // Display the error in the file if we have a problem.
             foreach ($line_error as $value) {
                 echo $value . "<br>";
             }
