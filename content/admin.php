@@ -33,12 +33,12 @@ if (isset($_SESSION["username"]) && isset($_SESSION["id"])) { ?>
 else {
 ?>
 	<div class="wrapper">
-    	<form class="form-signin" method="post" action="core/connection.php">       
+    	<form class="form-signin" method="post" action="core/connection.php">
 	      	<h2 class="form-signin-heading">Connexion</h2>
-	      	<input type="text" class="form-control" name="username" placeholder="Nom d'utilisateur"/>
+	      	<input type="text" class="form-control little-margin" name="username" placeholder="Nom d'utilisateur"/>
 	      	<input type="password" class="form-control margin-form" name="password" placeholder="Password"/>
 	      	<input type="hidden" name="connect" value="true">
-	      	<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+	      	<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     	</form>
   	</div>
 <?php } ?>
