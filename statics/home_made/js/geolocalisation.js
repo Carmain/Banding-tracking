@@ -5,17 +5,17 @@
 function litteralAddress(positionSet) {
 
     // Save the positions in two hidden fields in the form
-    $('input[name=mapX]').val(positionSet.lat());
-    $('input[name=mapY]').val(positionSet.lng());
-    
+    $('input[name=mapx]').val(positionSet.lat());
+    $('input[name=mapy]').val(positionSet.lng());
+
     // Transform the latitude and the longitude into address
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({'latLng': positionSet}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if(results[0]) {
-                
+
                 var results = results[0].address_components;
-                
+
                 for(var i = 0; i < results.length; i ++) {
                     results[i];
 
@@ -38,7 +38,7 @@ function litteralAddress(positionSet) {
                     }
                 }
             }
-        } 
+        }
     });
 }
 
@@ -87,8 +87,8 @@ function showLocation(position) {
 }
 
 function errorHandler(error) {
-    console.log("Geolocation error : code " + error.code + 
-                " - " + error.message); 
+    console.log("Geolocation error : code " + error.code +
+                " - " + error.message);
     getPosition(49.175180, -0.339846);
 }
 
@@ -110,7 +110,7 @@ function initialize() {
     }
     else {
         swal("Erreur dans la géolocalisation",
-             "Votre navigateur ne prends pas en compte la géolocalisation.\n" + 
+             "Votre navigateur ne prends pas en compte la géolocalisation.\n" +
              "Merci de bien vouloir remplir les champs de localisation manuellement.", "error");
     }
 }
