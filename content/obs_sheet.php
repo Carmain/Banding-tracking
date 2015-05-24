@@ -1,20 +1,20 @@
-<?php  
-if(isset($_SESSION["bird"])) { 
+<?php
+if(isset($_SESSION["bird"])) {
 
 	$bird_info = $_SESSION["bird"];
 	$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
 
 	$observers_array = array();
-	while($observers = $observers_list->fetch()) { 
+	while($observers = $observers_list->fetch()) {
 		array_push($observers_array, array(
 			"date" => $observers["date"],
 			"town" => $observers["town"],
-			"name" => str_replace(array("\"", "'"), array("£dqot;", "£sqot;"), $observers["last_name"] . ' ' . $observers["first_name"])
+			"name" => $observers["last_name"] . ' ' . $observers["first_name"]
 		));
 	}
 
 	$to_replace = array("\"", "'");
-	$replace_by = array("\\\"", "\'");
+	$replace_by = array("£dqot;", "£sqot;");
 	$bird_info_json = str_replace($to_replace, $replace_by, json_encode($bird_info));
 	$observers_list_json = str_replace($to_replace, $replace_by, json_encode($observers_array));
 ?>
@@ -100,15 +100,15 @@ if(isset($_SESSION["bird"])) {
 					</tr>
 				</thead>
 				<tbody>
-  					<?php 
+  					<?php
   					$observers_list = $db->get_observers($bird_info["id_kentish_plover"]);
-  					while($observers = $observers_list->fetch()) { 
+  					while($observers = $observers_list->fetch()) {
   					?>
   						<tr>
 							<td>
-								<?php 
+								<?php
 								$mysql_date = strtotime($observers["date"]);
-								echo date('d-m-Y', $mysql_date); 
+								echo date('d-m-Y', $mysql_date);
 								?>
 							</td>
 							<td><?php echo $observers["town"]; ?></td>
@@ -119,7 +119,7 @@ if(isset($_SESSION["bird"])) {
 			</table>
 	  	</div>
 	</div>
-<?php							 
+<?php
 	unset($_SESSION["bird"]);
 }
 else {

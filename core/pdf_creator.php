@@ -7,7 +7,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$bird_info_json = $_POST["bird_infos"];
 	$observers_list_json = $_POST["observers_list"];
 
-	$to_replace = array("\\\"", "\'");
+	$to_replace = array("£dqot;", "£sqot;");
 	$replace_by = array("\"", "'");
 
 	$bird_info = json_decode(str_replace($to_replace, $replace_by, $bird_info_json), true);
@@ -22,7 +22,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 
 		function PDF($orientation='P', $unit='mm', $size='A4') {
 		    $this->FPDF($orientation,$unit,$size); // Call the parent constructor
-		    
+
 		    // Initialisation
 		    $this->B = 0;
 		    $this->I = 0;
@@ -108,7 +108,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 		{
 		    $this->SetY(-15); // Positionnement à 1,5 cm du bas
 		    $this->SetFont("Arial", '', 8);
-		    $this->Cell(0, 2,'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C'); 	
+		    $this->Cell(0, 2,'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
 		}
 	}
 
@@ -121,7 +121,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	// -----------------------------------------------------------------------
 	// ------------------- Configuration vars for the PDF --------------------
 	// -----------------------------------------------------------------------
-	
+
 	$font_family = "Arial";
 	$text_size = 10;
 	$cell_heigh = 6;
@@ -154,12 +154,12 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 
 	// -------------------------------------------------------
 	// ------------------ bird informations ------------------
-	
+
 	$pdf->SetFont($font_family, 'B', $text_size);
-	
+
 	// ------------------------
 	// -------- Titles --------
-	
+
 	$pdf->SetXY(20, $start_positionY_bird);
 	$pdf->Cell(0, $cell_heigh, "Bague Acier :", 0, 2);
 	$pdf->Cell(0, $cell_heigh, "Bague Couleur :", 0, 2);
@@ -173,12 +173,12 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Cell(0, $cell_heigh, "Bageur : ", 0, 2);
 	// ------------------------
 	// ------------------------
-	
+
 	$pdf->SetFont($font_family, '', $text_size);
 
 	// ------------------------
 	// ----- Informations -----
-	
+
 	$color = utf8_decode(ucfirst(strtolower($bird_info["color"])));
 
 	$pdf->SetXY(52, $start_positionY_bird);
@@ -195,10 +195,10 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 
 	// -------------------------------------------------------
 	// -------------------------------------------------------
-	
+
 	// -------------------------------------------------------
 	// --------------------- Users datas ---------------------
-		
+
 	$pdf->SetFont($font_family, 'B', $text_size);
 	$pdf->SetXY(20, 100);
 	$pdf->Cell(40, $cell_heigh, "Date", 1, 0, 'C');
@@ -218,7 +218,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	// -----------------------------------------------------------------------
 
 	// Send PDF
-	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" . 
+	$pdf->Output("GCI_". utf8_decode($bird_info["metal_ring"]) . "_" .
 				 $color . ".pdf", "D");
 }
 ?>
