@@ -47,7 +47,7 @@
 
         <div class="col-sm-3">
             <p>
-                En titre d'exemple avec les deux les deux illustrations suivantes,
+                En titre d'exemple avec les deux illustrations suivantes,
                 la lecture de bague donnera :
                 <ul>
                     <li><b>22 JAUNE</b> pour celui de gauche</li>
