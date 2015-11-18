@@ -99,7 +99,7 @@
             <input type="text" class="form-control mandatory little-margin" name="department_long" placeholder="Département">
         </div>
         <div class="col-sm-2">
-            <input type="text" class="form-control mandatory" name="department_short" placeholder="N° département">
+            <input type="text" class="form-control mandatory" name="department_short" placeholder="N° dpt">
         </div>
     </div>
 
