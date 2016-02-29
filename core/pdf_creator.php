@@ -170,7 +170,7 @@ if (isset($_POST["bird_infos"]) && isset($_POST["observers_list"])) {
 	$pdf->Cell(0, $cell_heigh, utf8_decode("Âge :"), 0, 2);
 	$pdf->Cell(0, $cell_heigh, "Sexe :", 0, 2);
 	$pdf->Cell(0, $cell_heigh, "Lieu de Baguage :", 0, 2);
-	$pdf->Cell(0, $cell_heigh, "Bageur : ", 0, 2);
+	$pdf->Cell(0, $cell_heigh, "Bagueur : ", 0, 2);
 	// ------------------------
 	// ------------------------
 
