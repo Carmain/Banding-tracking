@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <link rel="shortcut icon" type="image/png" href="statics/pictures/fav_icon.png"/>
         <title>banding tracking</title>
 
@@ -36,6 +36,7 @@
                         <li><a href="index.php?url=form">Vous avez vu un gravelot ?</a></li>
                         <li><a href="index.php?url=admin">Administration</a></li>
                         <li><a href="index.php?url=about">A propos</a></li>
+                        <li><a href="http://crbpo.mnhn.fr/">Le CRBPO</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,16 +45,16 @@
         <?php
             include "core/database_operations.php";
             $db = new Database_operations();
-            
+
             if (isset($_GET["url"])) {
-                include "content/" . $_GET["url"]. ".php";    
+                include "content/" . $_GET["url"]. ".php";
             }
             else {
                 include "content/home.php";
             }
         ?>
         </div>
-        
+
         <?php
 
         if(isset($_GET["url"]) && $_GET["url"] == "form") {
@@ -72,8 +73,8 @@
         // Displays an error when the form does not return anything
         if (isset($_SESSION["alert"])) {
             if($_SESSION["alert"]) {
-                echo '<script type="text/javascript"> (swal("Aucune donnée retournée", 
-                      "Aucun oiseau bagué portant ces couleur et ce chiffre n\'a été trouvé", 
+                echo '<script type="text/javascript"> (swal("Aucune donnée retournée",
+                      "Aucun oiseau bagué portant ces couleur et ce chiffre n\'a été trouvé",
                       "error"));</script>';
             }
         }

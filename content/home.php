@@ -26,11 +26,11 @@
 	  	</div>
 
 	  	<div class="col-sm-12">
-	  		<a href="http://crbpo.mnhn.fr/" target="_blank">
+	  		<a href="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank">
 		    	<div class="thumbnail">
-		      		<img src="statics/pictures/mnhn.jpg" alt="Site du GONm">
+		      		<img src="statics/pictures/bretagne-vivante.jpg" alt="Bretagne vivante">
 		      		<div class="caption">
-				        <h3>Le CRBPO</h3>
+				        <h3>Bretagne vivante</h3>
 		      		</div>
 		    	</div>
 		    </a>
